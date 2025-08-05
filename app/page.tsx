@@ -145,7 +145,7 @@ export default function HomePage() {
         </section>
 
         {/* Metrics Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 bg-white md:py-10">
           <div className="container max-w-6xl">
             <ScrollAnimator>
               <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
