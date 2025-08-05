@@ -82,7 +82,7 @@ const peopleFeatures = [
 
 export function PeopleSection() {
   return (
-    <section id="people" className="py-24 md:py-32 bg-white">
+    <section id="people" className="py-24 bg-white md:py-10">
       <div className="container max-w-7xl">
         {/* Combined Hero and People Tiles */}
         <div className="grid gap-12 lg:grid-cols-2 items-start">

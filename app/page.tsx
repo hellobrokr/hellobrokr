@@ -187,7 +187,7 @@ export default function HomePage() {
         </section>
 
         {/* Customer Stories Section with Company Logos */}
-        <section className="py-24 md:py-32 bg-white">
+        <section className="py-24 bg-white md:py-10">
           <div className="container max-w-7xl">
             <ScrollAnimator>
               <div className="text-center mb-16">
@@ -280,7 +280,7 @@ export default function HomePage() {
         {/* Tools Demo Section */}
 
         {/* Integrations Section */}
-        <section className="py-24 md:py-32 bg-white">
+        <section className="py-24 bg-white md:py-10">
           <div className="container max-w-6xl">
             <ScrollAnimator>
               <div className="text-center mb-16">

@@ -29,7 +29,7 @@ const signFeatures = [
 
 export function SignSection() {
   return (
-    <section className="py-24 md:py-32 bg-white overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden md:py-8">
       <div className="container max-w-7xl">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -113,7 +113,7 @@ export function SignSection() {
         {/* Features Section */}
         <div className="mt-16 md:mt-24">
           <ScrollAnimator>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 md:gap-8">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 py-3">
               {signFeatures.map((feature) => (
                 <div
                   key={feature.title}

@@ -10,7 +10,7 @@ interface FinalCtaProps {
 
 export function FinalCta({ onGetStarted }: FinalCtaProps) {
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-24 bg-white md:py-10">
       <div className="container max-w-4xl">
         <ScrollAnimator>
           <div className="text-center">
