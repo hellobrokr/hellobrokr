@@ -1,19 +1,7 @@
 "use client"
 
 import { ScrollAnimator } from "./scroll-animator"
-import {
-  Users,
-  MessageSquare,
-  Phone,
-  Mail,
-  Brain,
-  Calendar,
-  Database,
-  Inbox,
-  FolderSyncIcon as Sync,
-  TrendingUp,
-  CheckSquare,
-} from "lucide-react"
+import { Users, MessageSquare, Phone, Mail, Brain, Inbox, TrendingUp, CheckSquare } from "lucide-react"
 
 const contacts = [
   {
@@ -21,9 +9,6 @@ const contacts = [
     company: "Andreessen Horowitz",
     role: "Partner",
     status: "hot",
-    engagement: 95,
-    lastActivity: "Viewed pitch deck",
-    nextActivity: "Follow-up call tomorrow",
     tag: "Partner",
   },
   {
@@ -31,9 +16,6 @@ const contacts = [
     company: "Sequoia Capital",
     role: "Principal",
     status: "warm",
-    engagement: 78,
-    lastActivity: "Downloaded financials",
-    nextActivity: "Send term sheet draft",
     tag: "Partner",
   },
   {
@@ -41,9 +23,6 @@ const contacts = [
     company: "Kleiner Perkins",
     role: "Partner",
     status: "cold",
-    engagement: 45,
-    lastActivity: "Email opened",
-    nextActivity: "Schedule intro call",
     tag: "Prospect",
   },
   {
@@ -51,9 +30,6 @@ const contacts = [
     company: "Accel Partners",
     role: "Managing Director",
     status: "hot",
-    engagement: 88,
-    lastActivity: "Signed NDA",
-    nextActivity: "Due diligence meeting",
   },
 ]
 
@@ -84,11 +60,11 @@ export function PeopleSection() {
   return (
     <section id="people" className="py-24 md:py-32 bg-white">
       <div className="container max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-2 items-start">
-          {/* Left Column - Hero Content */}
+        {/* Hero Content */}
+        <div className="grid gap-12 lg:grid-cols-2 items-center mb-16 md:mb-24">
+          {/* Left Column - Content */}
           <ScrollAnimator>
             <div className="space-y-8 text-center lg:text-left">
-              {/* Badge */}
               <div className="inline-flex items-center rounded-full bg-white/80 backdrop-blur-xl p-1 text-sm font-medium text-foreground shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/20">
                 <span className="mr-2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground shadow-[0_4px_12px_rgba(0,0,0,0.15)] flex items-center gap-2">
                   <Users className="h-4 w-4" />
@@ -96,8 +72,6 @@ export function PeopleSection() {
                 </span>
                 <span className="pr-3">The CRM that actually works for dealmakers</span>
               </div>
-
-              {/* Main Headline */}
               <div>
                 <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                   <span className="text-black">Your deal-centric,</span>
@@ -111,8 +85,6 @@ export function PeopleSection() {
                   <span className="text-black">CRM</span>
                 </h2>
               </div>
-
-              {/* Description */}
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 Finally, a CRM built for dealmakers. Auto-captures every contact, tracks all interactions, and turns
                 your entire network into your competitive advantage.
@@ -120,10 +92,9 @@ export function PeopleSection() {
             </div>
           </ScrollAnimator>
 
-          {/* Right Column - People Tiles with Floating Feature Tiles */}
-          <ScrollAnimator delay="delay-200" className="lg:mt-24">
-            <div className="relative min-h-[500px] lg:min-h-[600px]">
-              {/* Overlapping Contact Cards */}
+          {/* Right Column - People Tiles */}
+          <ScrollAnimator delay="delay-200">
+            <div className="relative min-h-[400px]">
               <div className="relative space-y-2 lg:space-y-0 lg:absolute lg:inset-0 flex lg:block flex-col items-center">
                 {contacts.map((contact, index) => (
                   <div
@@ -153,36 +124,21 @@ export function PeopleSection() {
                           } shadow-[0_1px_4px_rgba(0,0,0,0.1)]`}
                         ></div>
                       </div>
-
                       <div className="flex-1 min-w-0">
-                        <div className="mb-2">
-                          <div className="flex items-center gap-2">
-                            <h4 className="font-bold text-black text-sm sm:text-base">{contact.name}</h4>
-                            {contact.tag && (
-                              <span
-                                className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
-                                  contact.tag === "Partner"
-                                    ? "bg-primary text-primary-foreground"
-                                    : "bg-gray-100 text-gray-600"
-                                }`}
-                              >
-                                {contact.tag}
-                              </span>
-                            )}
-                          </div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <h4 className="font-bold text-black text-sm sm:text-base">{contact.name}</h4>
+                          {contact.tag && (
+                            <span
+                              className={`px-2 py-0.5 rounded-full text-xs font-semibold ${contact.tag === "Partner" ? "bg-primary text-primary-foreground" : "bg-gray-100 text-gray-600"}`}
+                            >
+                              {contact.tag}
+                            </span>
+                          )}
                         </div>
-
-                        <div className="flex items-center justify-between text-xs sm:text-sm text-gray-600">
-                          <div className="font-medium truncate pr-2">
-                            {contact.role}, {contact.company}
-                          </div>
-                          <div className="hidden md:flex items-center gap-2 flex-shrink-0">
-                            <Calendar className="h-3 w-3 text-black" />
-                            <div className="text-xs font-medium text-gray-700">{contact.nextActivity}</div>
-                          </div>
+                        <div className="text-xs sm:text-sm text-gray-600 font-medium truncate pr-2">
+                          {contact.role}, {contact.company}
                         </div>
                       </div>
-
                       <div className="flex gap-1 flex-shrink-0">
                         <button className="w-7 h-7 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
                           <Mail className="h-3 w-3 text-black" />
@@ -198,77 +154,29 @@ export function PeopleSection() {
                   </div>
                 ))}
               </div>
-
-              {/* Floating Feature Tiles */}
-              <div className="absolute inset-0 pointer-events-none hidden lg:block">
-                <div
-                  className="absolute -top-8 -right-16 w-56 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/30 pointer-events-auto hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105"
-                  style={{ zIndex: 30 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(163,230,53,0.3)]">
-                      <Database className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-black text-sm">Contact Enrichment</h4>
-                      <p className="text-xs text-gray-600">Auto-complete profiles</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="absolute top-64 -left-12 w-56 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/30 pointer-events-auto hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105"
-                  style={{ zIndex: 29 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(163,230,53,0.3)]">
-                      <Inbox className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-black text-sm">Email Sync</h4>
-                      <p className="text-xs text-gray-600">Never miss a thread</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="absolute bottom-48 -right-8 w-56 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/30 pointer-events-auto hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105"
-                  style={{ zIndex: 28 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(163,230,53,0.3)]">
-                      <Sync className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-black text-sm">CRM Sync</h4>
-                      <p className="text-xs text-gray-600">Bidirectional sync</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </ScrollAnimator>
-
-          {/* New Features Section */}
-          <div className="lg:col-span-2 mt-16">
-            <ScrollAnimator>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                {peopleFeatures.map((feature) => (
-                  <div
-                    key={feature.title}
-                    className="text-center p-6 rounded-2xl bg-white shadow-neumorphic-subtle transition-shadow duration-200 hover:shadow-neumorphic-card"
-                  >
-                    <div className="flex justify-center mb-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-[0_4px_12px_rgba(0,0,0,0.15),_inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_-1px_1px_rgba(0,0,0,0.1)]">
-                        <feature.icon className="h-6 w-6 text-primary-foreground" />
-                      </div>
-                    </div>
-                    <div className="text-xl font-bold text-foreground mb-2">{feature.title}</div>
-                    <div className="text-sm text-muted-foreground leading-relaxed">{feature.description}</div>
-                  </div>
-                ))}
-              </div>
-            </ScrollAnimator>
-          </div>
         </div>
+
+        {/* Feature Tiles */}
+        <ScrollAnimator>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {peopleFeatures.map((feature) => (
+              <div
+                key={feature.title}
+                className="text-center p-6 rounded-2xl bg-white shadow-neumorphic-card transition-shadow duration-200 hover:shadow-neumorphic-card-hover"
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-[0_4px_12px_rgba(0,0,0,0.15),_inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_-1px_1px_rgba(0,0,0,0.1)]">
+                    <feature.icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                </div>
+                <div className="text-xl font-bold text-foreground mb-2">{feature.title}</div>
+                <div className="text-sm text-muted-foreground leading-relaxed">{feature.description}</div>
+              </div>
+            ))}
+          </div>
+        </ScrollAnimator>
       </div>
     </section>
   )

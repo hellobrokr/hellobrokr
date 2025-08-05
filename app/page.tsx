@@ -11,40 +11,9 @@ import { PeopleSection } from "@/components/brokr/people-section"
 import { FinalCta } from "@/components/brokr/final-cta"
 import { BrokrFooter } from "@/components/brokr/footer"
 import { SquaredDemo } from "@/components/brokr/squared-demo"
-import { ArrowRight, FolderLock, Users, FileSignature, Square, Megaphone, Vault } from "lucide-react"
+import { ArrowRight, Users, FileSignature, Square, Megaphone, Vault } from "lucide-react"
 import { PricingPage } from "@/components/brokr/pricing-page"
 import { SignSection } from "@/components/brokr/sign-section"
-
-const features = [
-  {
-    icon: FolderLock,
-    title: "Datarooms",
-    subtitle: "Secure document sharing with real-time analytics",
-    description:
-      "Bank-grade security meets intuitive design. Create secure datarooms in seconds, control access with precision, and track engagement in real-time.",
-  },
-  {
-    icon: Users,
-    title: "People",
-    subtitle: "Smart CRM that captures every interaction",
-    description:
-      "Auto-captures every contact, tracks all interactions, predicts next moves. Your entire network becomes your competitive advantage.",
-  },
-  {
-    icon: FileSignature,
-    title: "Sign",
-    subtitle: "Unlimited e-signatures with audit trails",
-    description:
-      "Bank-grade security meets one-click simplicity. Unlimited signatures, bulletproof audit trails, instant execution.",
-  },
-  {
-    icon: Square,
-    title: "Squared",
-    subtitle: "Your AI dealmaking partner",
-    description:
-      "AI assistant that never takes a day off. Drafts term sheets, analyzes deals, manages follow-ups, answers questions.",
-  },
-]
 
 const metrics = [
   {
@@ -110,7 +79,7 @@ export default function HomePage() {
       <BrokrHeader onWaitlistSuccess={handleWaitlistSuccess} />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-24 bg-white md:py-3">
+        <section className="relative overflow-hidden py-24 md:py-32 bg-white">
           <div className="container relative z-10">
             <ScrollAnimator>
               <div className="max-w-4xl mx-auto text-center">
@@ -145,7 +114,7 @@ export default function HomePage() {
         </section>
 
         {/* Metrics Section */}
-        <section className="py-16 bg-white md:py-10">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container max-w-6xl">
             <ScrollAnimator>
               <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
@@ -168,26 +137,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Enhanced Dataroom Steps Section */}
-        <section id="datarooms">
-          <DataroomSteps onSetupDataroom={() => setShowWaitlistModal(true)} />
-        </section>
-
-        {/* People/CRM Section */}
+        <DataroomSteps onSetupDataroom={() => setShowWaitlistModal(true)} />
         <PeopleSection />
-
-        {/* Sign Section */}
-        <section id="sign">
-          <SignSection />
-        </section>
-
-        {/* Enhanced Squared AI Demo */}
-        <section id="squared">
-          <SquaredDemo />
-        </section>
+        <SignSection />
+        <SquaredDemo />
 
         {/* Customer Stories Section with Company Logos */}
-        <section className="py-24 bg-white md:py-10">
+        <section className="py-24 md:py-32 bg-white">
           <div className="container max-w-7xl">
             <ScrollAnimator>
               <div className="text-center mb-16">
@@ -219,16 +175,11 @@ export default function HomePage() {
             <div className="grid gap-8 md:grid-cols-3">
               <ScrollAnimator>
                 <div className="relative rounded-3xl bg-white/90 backdrop-blur-md p-8 shadow-neumorphic-card border border-white/20 overflow-hidden">
-                  {/* Quote Marks */}
                   <div className="text-6xl text-slate-300 font-serif mb-4">"</div>
-
-                  {/* Testimonial Content */}
                   <blockquote className="text-lg font-medium text-foreground mb-6 leading-relaxed relative z-10">
                     brokr transformed our deal velocity. We're closing transactions
                     <span className="text-primary font-bold"> 60% faster</span> than before.
                   </blockquote>
-
-                  {/* Attribution */}
                   <div className="relative z-10">
                     <div className="text-foreground font-semibold">Sarah</div>
                     <div className="text-muted-foreground text-sm">Real Estate Broker</div>
@@ -238,16 +189,11 @@ export default function HomePage() {
 
               <ScrollAnimator delay="delay-200">
                 <div className="relative rounded-3xl bg-white/90 backdrop-blur-md p-8 shadow-neumorphic-card border border-white/20 overflow-hidden">
-                  {/* Quote Marks */}
                   <div className="text-6xl text-slate-300 font-serif mb-4">"</div>
-
-                  {/* Testimonial Content */}
                   <blockquote className="text-lg font-medium text-foreground mb-6 leading-relaxed relative z-10">
                     The AI insights are incredible. brokr predicted which deals would close
                     <span className="text-primary font-bold"> before we knew</span> ourselves.
                   </blockquote>
-
-                  {/* Attribution */}
                   <div className="relative z-10">
                     <div className="text-foreground font-semibold">Marcus</div>
                     <div className="text-muted-foreground text-sm">Financial Advisor</div>
@@ -257,16 +203,11 @@ export default function HomePage() {
 
               <ScrollAnimator delay="delay-400">
                 <div className="relative rounded-3xl bg-white/90 backdrop-blur-md p-8 shadow-neumorphic-card border border-white/20 overflow-hidden">
-                  {/* Quote Marks */}
                   <div className="text-6xl text-slate-300 font-serif mb-4">"</div>
-
-                  {/* Testimonial Content */}
                   <blockquote className="text-lg font-medium text-foreground mb-6 leading-relaxed relative z-10">
                     Our due diligence process went from weeks to days. We're processing
                     <span className="text-primary font-bold"> 3x more deals</span> with the same team size.
                   </blockquote>
-
-                  {/* Attribution */}
                   <div className="relative z-10">
                     <div className="text-foreground font-semibold">Jennifer</div>
                     <div className="text-muted-foreground text-sm">Venture Capital</div>
@@ -277,10 +218,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Tools Demo Section */}
-
         {/* Integrations Section */}
-        <section className="py-24 bg-white md:py-10">
+        <section className="py-24 md:py-32 bg-white">
           <div className="container max-w-6xl">
             <ScrollAnimator>
               <div className="text-center mb-16">
@@ -339,12 +278,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Final CTA Section */}
         <PricingPage />
         <FinalCta onGetStarted={() => setShowWaitlistModal(true)} />
       </main>
 
-      {/* Footer */}
       <BrokrFooter />
 
       <WaitlistModal
