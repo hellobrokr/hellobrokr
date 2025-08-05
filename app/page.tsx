@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
 import { BrokrHeader } from "@/components/brokr/header"
 import { ScrollAnimator } from "@/components/brokr/scroll-animator"
 import { NotificationPill } from "@/components/brokr/notification-pill"
@@ -10,7 +11,7 @@ import { PeopleSection } from "@/components/brokr/people-section"
 import { FinalCta } from "@/components/brokr/final-cta"
 import { BrokrFooter } from "@/components/brokr/footer"
 import { SquaredDemo } from "@/components/brokr/squared-demo"
-import { FolderLock, Users, FileSignature, Square, Vault } from "lucide-react"
+import { ArrowRight, FolderLock, Users, FileSignature, Square, Megaphone, Vault } from "lucide-react"
 import { PricingPage } from "@/components/brokr/pricing-page"
 import { SignSection } from "@/components/brokr/sign-section"
 
@@ -108,6 +109,41 @@ export default function HomePage() {
     <div className="flex min-h-screen flex-col bg-white">
       <BrokrHeader onWaitlistSuccess={handleWaitlistSuccess} />
       <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative overflow-hidden py-24 bg-white md:py-3">
+          <div className="container relative z-10">
+            <ScrollAnimator>
+              <div className="max-w-4xl mx-auto text-center">
+                <div className="mb-10 inline-flex items-center rounded-full bg-white p-1 text-sm font-medium text-foreground shadow-neumorphic-subtle">
+                  <span className="mr-2 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground flex items-center gap-1">
+                    <Megaphone className="h-4 w-4" />
+                  </span>
+                  <span className="pr-2">Be the first to get access to brokr V3</span>
+                </div>
+                <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-tight">
+                  <span className="block md:inline">Where Deals </span>
+                  <span className="relative inline-block align-middle">
+                    <span className="absolute inset-x-[-10px] inset-y-[-6px] bg-primary/20 rounded-[28px] shadow-neumorphic-card transform blur-lg opacity-80 -z-10 skew-y-[-1.5deg]"></span>
+                    <span className="relative z-10 inline-block px-6 py-2 sm:px-8 sm:py-3 bg-primary text-primary-foreground rounded-[22px] shadow-[0_4px_12px_rgba(0,0,0,0.15),_inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_-1px_1px_rgba(0,0,0,0.1)] border border-white/30">
+                      Happen
+                    </span>
+                  </span>
+                </h1>
+                <p className="mt-8 max-w-4xl mx-auto text-center text-xl leading-relaxed text-muted-foreground">
+                  The comprehensive transaction platform streamlining dealmaking. Secure document sharing, intelligent
+                  CRM, AI-powered workflows, and compliance-grade e-signatures in one unified ecosystem.
+                </p>
+                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-4 gap-y-4">
+                  <Button size="lg" className={waitlistButtonClasses} onClick={() => setShowWaitlistModal(true)}>
+                    Join the waitlist
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Button>
+                </div>
+              </div>
+            </ScrollAnimator>
+          </div>
+        </section>
+
         {/* Metrics Section */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container max-w-6xl">
