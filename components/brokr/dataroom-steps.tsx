@@ -38,7 +38,7 @@ export function DataroomSteps({ onSetupDataroom }: DataroomStepsProps) {
       <DataroomHero onSetupDataroom={onSetupDataroom} />
 
       {/* Features Section */}
-      <section className="pt-16 md:pt-24 pb-24 md:pb-32 bg-white">
+      <section className="pt-16 md:pt-24 pb-24 bg-white md:pb-10">
         <div className="container max-w-6xl">
           <ScrollAnimator>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 md:gap-8">
