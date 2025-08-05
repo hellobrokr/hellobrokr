@@ -1,7 +1,18 @@
 "use client"
 
-import { ScrollAnimator } from "./scroll-animator"
-import { Users, MessageSquare, Phone, Mail, Brain, Inbox, TrendingUp, CheckSquare } from "lucide-react"
+import {
+  Users,
+  MessageSquare,
+  Phone,
+  Mail,
+  Brain,
+  Inbox,
+  TrendingUp,
+  CheckSquare,
+  Database,
+  FolderSyncIcon as Sync,
+} from "lucide-react"
+import ScrollAnimator from "path-to-scroll-animator" // Import ScrollAnimator here
 
 const contacts = [
   {
@@ -153,6 +164,51 @@ export function PeopleSection() {
                     </div>
                   </div>
                 ))}
+                {/* Floating Feature Tiles */}
+                <div className="absolute inset-0 pointer-events-none hidden lg:block">
+                  <div
+                    className="absolute -top-8 -right-16 w-56 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/30 pointer-events-auto hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105"
+                    style={{ zIndex: 30 }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(163,230,53,0.3)]">
+                        <Database className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-black text-sm">Contact Enrichment</h4>
+                        <p className="text-xs text-gray-600">Auto-complete profiles</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="absolute top-64 -left-12 w-56 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/30 pointer-events-auto hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105"
+                    style={{ zIndex: 29 }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(163,230,53,0.3)]">
+                        <Inbox className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-black text-sm">Email Sync</h4>
+                        <p className="text-xs text-gray-600">Never miss a thread</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="absolute bottom-48 -right-8 w-56 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/30 pointer-events-auto hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105"
+                    style={{ zIndex: 28 }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(163,230,53,0.3)]">
+                        <Sync className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-black text-sm">CRM Sync</h4>
+                        <p className="text-xs text-gray-600">Bidirectional sync</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </ScrollAnimator>

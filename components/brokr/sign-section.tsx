@@ -1,7 +1,8 @@
 "use client"
 
 import { ScrollAnimator } from "./scroll-animator"
-import { FileSignature, Zap, Clock, ShieldCheck, PenSquare } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { FileSignature, Zap, Clock, ShieldCheck, PenSquare, CheckCircle, Download } from "lucide-react"
 
 const signFeatures = [
   {
@@ -44,13 +45,12 @@ export function SignSection() {
               </div>
               <div>
                 <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                  <span className="text-black">The final step,</span>
+                  <span className="text-black">Signed, Sealed,</span>
                   <br />
-                  <span className="text-black">made </span>
                   <span className="relative inline-block align-middle">
                     <span className="absolute inset-x-[-10px] inset-y-[-6px] bg-primary/20 rounded-[28px] shadow-neumorphic-card transform blur-lg opacity-80 -z-10 skew-y-[-1.5deg]"></span>
                     <span className="relative z-10 inline-block px-6 py-2 sm:px-8 sm:py-3 bg-primary text-primary-foreground rounded-[22px] shadow-[0_4px_12px_rgba(0,0,0,0.15),_inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_-1px_1px_rgba(0,0,0,0.1)] border border-white/30">
-                      effortless.
+                      Delivered.
                     </span>
                   </span>
                 </h2>
@@ -64,12 +64,21 @@ export function SignSection() {
 
           {/* Right Column - Visual */}
           <ScrollAnimator delay="delay-200">
-            <div className="relative">
-              <img
-                src="/signature-graphic.png"
-                alt="A person signing a document on a tablet, with security icons floating around."
-                className="rounded-3xl shadow-neumorphic-card-hover"
-              />
+            <div className="relative max-w-sm mx-auto">
+              <div className="bg-white rounded-2xl p-6 shadow-neumorphic-card-hover border border-slate-200 text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                    <CheckCircle className="w-8 h-8 text-green-600" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-1">Document Signed</h3>
+                <p className="text-sm text-muted-foreground mb-4">Signed by Harvey Spector</p>
+                <img src="/signature-graphic.png" alt="E-signature" className="mx-auto h-16 mb-6" />
+                <Button variant="outline" className="w-full bg-slate-50 shadow-neumorphic-subtle">
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Audit Trail
+                </Button>
+              </div>
             </div>
           </ScrollAnimator>
         </div>
