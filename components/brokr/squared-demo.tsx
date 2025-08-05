@@ -101,7 +101,8 @@ export function SquaredDemo() {
                 <input
                   type="text"
                   placeholder="Type your message..."
-                  className="flex-1 bg-transparent text-gray-800 placeholder-gray-500 focus:outline-none px-2"
+                  className="flex-1 bg-transparent text-gray-800 placeholder-gray-500 focus:outline-none px-2 cursor-not-allowed"
+                  disabled
                 />
                 <button className="p-2 text-gray-500 hover:text-black transition-colors">
                   <Paperclip className="h-5 w-5" />
