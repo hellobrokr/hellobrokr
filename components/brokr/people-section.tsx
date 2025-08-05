@@ -84,7 +84,6 @@ export function PeopleSection() {
   return (
     <section id="people" className="py-24 md:py-32 bg-white">
       <div className="container max-w-7xl">
-        {/* Combined Hero and People Tiles */}
         <div className="grid gap-12 lg:grid-cols-2 items-start">
           {/* Left Column - Hero Content */}
           <ScrollAnimator>
@@ -247,27 +246,29 @@ export function PeopleSection() {
               </div>
             </div>
           </ScrollAnimator>
-        </div>
 
-        {/* New Features Section */}
-        <ScrollAnimator>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16">
-            {peopleFeatures.map((feature) => (
-              <div
-                key={feature.title}
-                className="text-center p-6 rounded-2xl bg-white shadow-neumorphic-subtle transition-shadow duration-200 hover:shadow-neumorphic-card"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-[0_4px_12px_rgba(0,0,0,0.15),_inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_-1px_1px_rgba(0,0,0,0.1)]">
-                    <feature.icon className="h-6 w-6 text-primary-foreground" />
+          {/* New Features Section */}
+          <div className="lg:col-span-2 mt-16">
+            <ScrollAnimator>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                {peopleFeatures.map((feature) => (
+                  <div
+                    key={feature.title}
+                    className="text-center p-6 rounded-2xl bg-white shadow-neumorphic-subtle transition-shadow duration-200 hover:shadow-neumorphic-card"
+                  >
+                    <div className="flex justify-center mb-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-[0_4px_12px_rgba(0,0,0,0.15),_inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_-1px_1px_rgba(0,0,0,0.1)]">
+                        <feature.icon className="h-6 w-6 text-primary-foreground" />
+                      </div>
+                    </div>
+                    <div className="text-xl font-bold text-foreground mb-2">{feature.title}</div>
+                    <div className="text-sm text-muted-foreground leading-relaxed">{feature.description}</div>
                   </div>
-                </div>
-                <div className="text-xl font-bold text-foreground mb-2">{feature.title}</div>
-                <div className="text-sm text-muted-foreground leading-relaxed">{feature.description}</div>
+                ))}
               </div>
-            ))}
+            </ScrollAnimator>
           </div>
-        </ScrollAnimator>
+        </div>
       </div>
     </section>
   )
