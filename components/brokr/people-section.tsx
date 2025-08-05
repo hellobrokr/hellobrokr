@@ -82,7 +82,7 @@ const peopleFeatures = [
 
 export function PeopleSection() {
   return (
-    <section id="people" className="py-24 bg-white md:py-10">
+    <section id="people" className="py-24 md:py-32 bg-white">
       <div className="container max-w-7xl">
         {/* Combined Hero and People Tiles */}
         <div className="grid gap-12 lg:grid-cols-2 items-start">
@@ -251,7 +251,7 @@ export function PeopleSection() {
 
         {/* New Features Section */}
         <ScrollAnimator>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-24">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16">
             {peopleFeatures.map((feature) => (
               <div
                 key={feature.title}
