@@ -1,10 +1,5 @@
 import { put } from "@vercel/blob"
 import { type NextRequest, NextResponse } from "next/server"
-import { Resend } from "resend"
-
-// Initialize Resend with API key from environment variables
-// Note: You will need to add RESEND_API_KEY to your project's environment variables.
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,23 +58,7 @@ export async function POST(request: NextRequest) {
 
     console.log("Successfully stored to blob:", blob.url)
 
-    // Send notification email using Resend
-    try {
-      if (process.env.RESEND_API_KEY) {
-        await resend.emails.send({
-          from: "waitlist@brokr.app", // Note: This domain must be verified with Resend.
-          to: "contact@hellobrokr.com",
-          subject: "🎉 New Waitlist Signup!",
-          html: `<p>A new user has joined the waitlist: <strong>${email}</strong></p><p>Timestamp: ${timestamp}</p>`,
-        })
-        console.log("Notification email sent successfully.")
-      } else {
-        console.log("RESEND_API_KEY not configured, skipping email notification.")
-      }
-    } catch (emailError) {
-      console.error("Error sending notification email:", emailError)
-      // Do not block the response for email failure
-    }
+    // Email notification removed — forwarding to Make webhook only.
 
     // Forward to Make webhook
     const webhookUrl = process.env.MAKE_WEBHOOK_URL || "https://hook.us2.make.com/d44xnr5pc3l0917ld4a31s19qzn39c1e"
