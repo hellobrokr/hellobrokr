@@ -81,6 +81,42 @@ export async function POST(request: NextRequest) {
       // Do not block the response for email failure
     }
 
+    // Forward to Make webhook
+    const webhookUrl = process.env.MAKE_WEBHOOK_URL || "https://hook.us2.make.com/d44xnr5pc3l0917ld4a31s19qzn39c1e"
+    if (webhookUrl) {
+      try {
+        const forwardedFor = request.headers.get("x-forwarded-for") || ""
+        const ip = forwardedFor.split(",")[0]?.trim() || "unknown"
+        const userAgent = request.headers.get("user-agent") || "unknown"
+        const referer = request.headers.get("referer") || "unknown"
+        const pathname = new URL(request.url).pathname
+
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Optional: use this header in Make to verify origin
+            ...(process.env.MAKE_WEBHOOK_SECRET ? { "X-Webhook-Secret": process.env.MAKE_WEBHOOK_SECRET } : {}),
+          },
+          body: JSON.stringify({
+            source: "brokr-waitlist",
+            email,
+            timestamp,
+            context: {
+              ip,
+              userAgent,
+              referer,
+              pathname,
+            },
+          }),
+        })
+        console.log("Forwarded to Make webhook")
+      } catch (err) {
+        console.error("Failed to forward to Make webhook:", err)
+        // Do not block the main response on webhook failure
+      }
+    }
+
     return NextResponse.json({
       success: true,
       message: "Email added to waitlist",
