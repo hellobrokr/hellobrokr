@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { BrokrHeader } from "@/components/brokr/header"
@@ -14,6 +13,7 @@ import { SquaredDemo } from "@/components/brokr/squared-demo"
 import { ArrowRight, Users, FileSignature, Square, Megaphone, Vault } from "lucide-react"
 import { PricingPage } from "@/components/brokr/pricing-page"
 import { SignSection } from "@/components/brokr/sign-section"
+import Image from "next/image"
 
 const metrics = [
   {
@@ -165,6 +165,61 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* New Metrics Section 1 */}
+        <section className="py-12 bg-white md:py-0 mt-10">
+          <div className="container max-w-6xl">
+            <ScrollAnimator>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-6">
+                {metrics.map((metric) => (
+                  <CustomCard1
+                    key={metric.value}
+                    imageSrc={"/card-images/datarooms.png"}
+                    imageAlt={metric.value}
+                    title={metric.value}
+                    content={metric.description}
+                  />
+                ))}
+              </div>
+            </ScrollAnimator>
+          </div>
+        </section>
+        {/* New Metrics Section 2 */}
+        <section className="py-12 bg-white md:py-0 mt-10">
+          <div className="container max-w-6xl">
+            <ScrollAnimator>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-6">
+                {metrics.map((metric) => (
+                  <CustomCard2
+                    key={metric.value}
+                    imageSrc={"/card-images/datarooms.png"}
+                    imageAlt={metric.value}
+                    title={metric.value}
+                    content={metric.description}
+                  />
+                ))}
+              </div>
+            </ScrollAnimator>
+          </div>
+        </section>
+        {/* New Metrics Section 3 */}
+        <section className="py-12 bg-white md:py-0 mt-10">
+          <div className="container max-w-6xl">
+            <ScrollAnimator>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-6">
+                {metrics.map((metric) => (
+                  <CustomCard3
+                    key={metric.value}
+                    imageSrc={"/card-images/datarooms.png"}
+                    imageAlt={metric.value}
+                    title={metric.value}
+                    content={metric.description}
+                  />
+                ))}
+              </div>
+            </ScrollAnimator>
+          </div>
+        </section>
+
         <DataroomSteps onSetupDataroom={() => setShowWaitlistModal(true)} />
         <PeopleSection />
         <SignSection />
@@ -297,3 +352,110 @@ export default function HomePage() {
     </div>
   )
 }
+
+interface CustomCardProps {
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  content: string;
+}
+
+const CustomCard1: React.FC<CustomCardProps> = ({
+    imageSrc,
+    imageAlt,
+    title,
+    content,
+}) => {
+    return (
+        <div className="group relative bg-white/25 backdrop-blur-xl rounded-3xl p-4 shadow-[0_8px_32px_rgba(31,38,135,0.15),inset_0_1px_0_rgba(255,255,255,0.4),0_2px_4px_rgba(0,0,0,0.05)] border border-white/20 transition-all duration-500 ease-out hover:transform hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,38,135,0.2),inset_0_1px_0_rgba(255,255,255,0.5),0_4px_8px_rgba(0,0,0,0.08)] animate-float">
+            <div
+                className={`relative w-full aspect-square rounded-2xl flex items-center justify-center mb-6 overflow-hidden`}
+            >
+                <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    width={40}
+                    height={40}
+                    className="w-full aspect-square object-cover drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
+                />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-[#a3e63525]"></div>
+            </div>
+
+            <h3 className="text-center text-2xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
+                {title}
+            </h3>
+
+            <p className="text-center text-gray-600 text-base leading-relaxed font-normal">
+                {content}
+            </p>
+        </div>
+    );
+};
+
+
+const CustomCard2: React.FC<CustomCardProps> = ({
+    imageSrc,
+    imageAlt,
+    title,
+    content,
+}) => {
+    return (
+        <div className="group relative overflow-clip bg-white rounded-2xl shadow-[0_8px_32px_rgba(31,38,135,0.15),inset_0_1px_0_rgba(255,255,255,0.4),0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-500 ease-out hover:shadow-[0_20px_40px_rgba(31,38,135,0.2),inset_0_1px_0_rgba(255,255,255,0.5),0_4px_8px_rgba(0,0,0,0.08)] animate-float">
+            <div>
+                <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                />
+            </div>
+            <div className="p-4 relative">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
+                    {title}
+                </h3>
+
+                <p className="text-gray-600 text-base leading-relaxed font-normal">
+                    {content}
+                </p>
+                {/* Gradient overlay  */}
+                <div
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#00000015,transparent),radial-gradient(circle_at_top_right,#a3e63540,transparent)] opacity-100 group-hover:opacity-0 transition-all duration-500 ease-out"
+                ></div>
+                <div
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#00000015,transparent),radial-gradient(circle_at_bottom_right,#a3e63540,transparent)] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out"
+                ></div>
+            </div>
+        </div>
+    );
+};
+
+const CustomCard3: React.FC<CustomCardProps> = ({
+    imageSrc,
+    imageAlt,
+    title,
+    content,
+}) => {
+    return (
+        <div className="group relative aspect-square overflow-clip bg-white rounded-2xl shadow-[0_8px_32px_rgba(31,38,135,0.15),inset_0_1px_0_rgba(255,255,255,0.4),0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-500 ease-out hover:shadow-[0_20px_40px_rgba(31,38,135,0.2),inset_0_1px_0_rgba(255,255,255,0.5),0_4px_8px_rgba(0,0,0,0.08)] animate-float">
+            <div className="absolute inset-0 transition-all duration-500 ease-out group-hover:-inset-2 pb-10">
+                <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-white/75 backdrop-blur transition-all duration-500 ease-out lg:translate-y-[calc(100%-65px)] group-hover:translate-y-0">
+                <h3 className="text-center text-2xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
+                    {title}
+                </h3>
+
+                <p className="text-center text-gray-600 text-base leading-relaxed font-normal">
+                    {content}
+                </p>
+            </div>
+        </div>
+    );
+};
