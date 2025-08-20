@@ -1,4 +1,5 @@
 "use client"
+
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { BrokrHeader } from "@/components/brokr/header"
@@ -367,7 +368,7 @@ const CustomCard1: React.FC<CustomCardProps> = ({
     content,
 }) => {
     return (
-        <div className="group relative bg-white/25 backdrop-blur-xl rounded-3xl p-4 shadow-[0_8px_32px_rgba(31,38,135,0.15),inset_0_1px_0_rgba(255,255,255,0.4),0_2px_4px_rgba(0,0,0,0.05)] border border-white/20 transition-all duration-500 ease-out hover:transform hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,38,135,0.2),inset_0_1px_0_rgba(255,255,255,0.5),0_4px_8px_rgba(0,0,0,0.08)] animate-float">
+        <div className="group relative bg-white/25 backdrop-blur-xl rounded-3xl p-3 shadow-[0_8px_32px_rgba(31,38,135,0.15),inset_0_1px_0_rgba(255,255,255,0.4),0_2px_4px_rgba(0,0,0,0.05)] border border-white/20 transition-all duration-500 ease-out hover:shadow-[0_20px_40px_rgba(31,38,135,0.2),inset_0_1px_0_rgba(255,255,255,0.5),0_4px_8px_rgba(0,0,0,0.08)] animate-float">
             <div
                 className={`relative w-full aspect-square rounded-2xl flex items-center justify-center mb-6 overflow-hidden`}
             >
@@ -381,11 +382,11 @@ const CustomCard1: React.FC<CustomCardProps> = ({
                 <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-[#a3e63525]"></div>
             </div>
 
-            <h3 className="text-center text-2xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
+            <h3 className="text-center text-xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
                 {title}
             </h3>
 
-            <p className="text-center text-gray-600 text-base leading-relaxed font-normal">
+            <p className="text-center text-gray-700 text-base leading-relaxed font-normal">
                 {content}
             </p>
         </div>
@@ -400,7 +401,7 @@ const CustomCard2: React.FC<CustomCardProps> = ({
     content,
 }) => {
     return (
-        <div className="group relative overflow-clip bg-white rounded-2xl shadow-[0_8px_32px_rgba(31,38,135,0.15),inset_0_1px_0_rgba(255,255,255,0.4),0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-500 ease-out hover:shadow-[0_20px_40px_rgba(31,38,135,0.2),inset_0_1px_0_rgba(255,255,255,0.5),0_4px_8px_rgba(0,0,0,0.08)] animate-float">
+        <div className="group relative overflow-clip bg-white rounded-2xl shadow-[0_8px_32px_rgba(31,38,135,0.15),inset_0_1px_0_rgba(255,255,255,0.4),0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-500 ease-out hover:shadow-[0_20px_40px_rgba(31,38,135,0.2),inset_0_1px_0_rgba(255,255,255,0.5),0_4px_8px_rgba(0,0,0,0.08)] animate-float flex flex-col">
             <div>
                 <Image
                     src={imageSrc}
@@ -410,12 +411,12 @@ const CustomCard2: React.FC<CustomCardProps> = ({
                     className="w-full h-full object-cover"
                 />
             </div>
-            <div className="p-4 relative">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
+            <div className="p-4 relative flex-1">
+                <h3 className="text-xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
                     {title}
                 </h3>
 
-                <p className="text-gray-600 text-base leading-relaxed font-normal">
+                <p className="text-gray-700 text-base leading-relaxed font-normal">
                     {content}
                 </p>
                 {/* Gradient overlay  */}
@@ -447,12 +448,12 @@ const CustomCard3: React.FC<CustomCardProps> = ({
                     className="w-full h-full object-cover"
                 />
             </div>
-            <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-white/75 backdrop-blur transition-all duration-500 ease-out lg:translate-y-[calc(100%-65px)] group-hover:translate-y-0">
-                <h3 className="text-center text-2xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
+            <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-white/75 backdrop-blur transition-all duration-500 ease-out lg:translate-y-[calc(100%-55px)] group-hover:translate-y-0">
+                <h3 className="text-center text-xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
                     {title}
                 </h3>
 
-                <p className="text-center text-gray-600 text-base leading-relaxed font-normal">
+                <p className="text-center text-gray-700 text-base leading-relaxed font-normal">
                     {content}
                 </p>
             </div>

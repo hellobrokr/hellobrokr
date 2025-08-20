@@ -51,7 +51,7 @@ export function FinalCta({ onGetStarted }: FinalCtaProps) {
                           <Button
                               size="xl"
                               onClick={onGetStarted}
-                              className="group relative px-8 py-4 text-lg font-medium overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                              className="group relative px-8 py-4 text-lg font-medium overflow-hidden rounded-2xl transition-all duration-300 transform active:scale-[0.98]"
                           >
                               {/* Light Background */}
                               <div className="absolute inset-0 bg-white/90 backdrop-blur-lg border border-gray-200/50"></div>
@@ -74,7 +74,7 @@ export function FinalCta({ onGetStarted }: FinalCtaProps) {
                             <Button
                                 size="xl"
                                 onClick={onGetStarted}
-                                className="group relative px-8 py-4 text-lg font-medium overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-[1.02] bg-white/90 hover:bg-white/90 active:scale-[0.98] shadow-[8px_8px_16px_rgba(0,0,0,0.25),-8px_-8px_16px_rgba(255,255,255,0.1)] hover:shadow-[inset_8px_8px_16px_rgba(0,0,0,0.25),inset_-8px_-8px_16px_rgba(255,255,255,0.1)]"
+                                className="group relative px-8 py-4 text-lg font-medium overflow-hidden rounded-2xl transition-all duration-300 transform bg-white/90 hover:bg-white/90 active:scale-[0.98] shadow-[8px_8px_16px_rgba(0,0,0,0.25),-8px_-8px_16px_rgba(255,255,255,0.1)] hover:shadow-[inset_8px_8px_16px_rgba(0,0,0,0.25),inset_-8px_-8px_16px_rgba(255,255,255,0.1)]"
                             >
                                 {/* Content */}
                                 <span className="relative z-10 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
@@ -87,10 +87,12 @@ export function FinalCta({ onGetStarted }: FinalCtaProps) {
                             <Button
                                 size="xl"
                                 onClick={onGetStarted}
-                                className="group relative px-8 py-4 text-lg font-medium overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-[4px_4px_8px_rgba(0,0,0,0.25),-4px_-4px_8px_rgba(255,255,255,0.1)]"
+                                className="group relative px-8 py-4 text-lg font-medium overflow-hidden rounded-2xl transition-all duration-300 transform active:scale-[0.98] shadow-[4px_4px_8px_rgba(0,0,0,0.25),-4px_-4px_8px_rgba(255,255,255,0.1)] hover:shadow-[6px_6px_12px_rgba(0,0,0,0.25),-6px_-6px_12px_rgba(255,255,255,0.1)]"
                             >
                                 {/* Light Background */}
-                                <div className="absolute inset-0 bg-white/90 backdrop-blur-lg border border-gray-200/50"></div>
+                                <div className="absolute inset-0 bg-white/90 backdrop-blur-lg"></div>
+                                {/* Hover effect bg */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-lime-400/10 via-lime-300/20 to-lime-400/10 opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
 
                                 {/* Shining stripes */}
                                 <div className="absolute -top-1/3 -left-1/3 w-[166%] h-[45%] opacity-0 group-hover:opacity-30 translate-y-36 group-hover:-translate-y-12 transition-all duration-300">
